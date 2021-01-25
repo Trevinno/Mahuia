@@ -1,0 +1,151 @@
+.faq_header {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.faq__body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Arial, sans-serif;
+    color: black;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.faq__body::before, .faq__body::after {
+    box-sizing: border-box;
+}
+.faq__container {
+    margin: 0 auto;
+    padding: 4rem;
+    width: 100%;
+}
+.faq_accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+.faq_accordion .accordion-item .faq_button[aria-expanded="true"] {
+    border-bottom: 1px solid rgb(237, 27, 36);
+}
+.faq_accordion .faq_button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: black;
+    font-size: 120%;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+}
+.faq_accordion .faq_button:hover, .faq_accordion .faq_button:focus {
+    cursor: pointer;
+    color: rgb(237, 27, 36);
+}
+.faq_accordion .faq_button:hover::after, .faq_accordion .faq_button:focus::after {
+    cursor: pointer;
+    color: rgb(237, 27, 36);
+    border: 1px solid rgb(237, 27, 36);
+}
+.faq_accordion .faq_button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+}
+.faq_accordion .faq_button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 0.8rem;
+    right: 0;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid;
+    border-radius: 2.5rem;
+}
+.faq_accordion .faq_button .icon::before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 0.9rem;
+    left: 0.5rem;
+    width: 1rem;
+    height: 0.2rem;
+    background: currentColor;
+}
+.faq_accordion .faq_button .icon::after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 0.5rem;
+    left: 0.9rem;
+    width: 0.2rem;
+    height: 1rem;
+    background: currentColor;
+}
+.faq_accordion .faq_button[aria-expanded="true"] {
+    color: rgb(237, 27, 36);
+}
+.faq_accordion .faq_button[aria-expanded="true"] .icon::after {
+    width: 0;
+}
+.faq_accordion .faq_button[aria-expanded="true"] + .accordion-content {
+    opacity: 1;
+    max-height: 9rem;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+}
+.faq_accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+}
+.faq_accordion .accordion-content p {
+    font-size: 110%;
+    font-weight: 300;
+    margin: 2rem 0;
+}
+
+.about_us_text {
+    font-size: 120%;
+    
+    text-align: center;
+
+}
+
+.about_us_flex {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+    .faq_header {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .faq_accordion .faq_button {
+        width: 100%;
+        font-size: 100%;
+        font-weight: 300;
+    }
+
+    .faq_accordion .accordion-content p {
+        font-size: 80%;
+        font-weight: 100;
+        margin: 1rem 0;
+    }
+
+
+    .faq_accordion .faq_button .icon {
+        top: 0.5rem;
+        right: -2rem;
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+    .faq_accordion .faq_button .icon::before {
+        top: 0.9rem;
+        left: 0.5rem;
+        width: 1rem;
+        height: 0.2rem;
+    }
+}

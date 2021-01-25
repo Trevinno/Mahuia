@@ -1,0 +1,133 @@
+.centerbar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: auto;
+}
+
+.flex_parent {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_child {
+    margin: 2% 1% 1.5% 1%;
+}
+
+.button {
+    --offset: 8px;
+    --border-size: 2px;
+    display: block;
+    position: relative;
+    padding: 0.9em 2em;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgb(237, 27, 36);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+    transition: background 0.8s ease;
+}
+.button:hover {
+    background: rgba(100, 0, 0, .03);
+}
+.button__horizontal, .button__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform 0.8s ease;
+    will-change: transform;
+}
+.button__horizontal::before, .button__vertical::before {
+    content: '';
+    position: absolute;
+    border: inherit;
+}
+.button__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor;
+}
+.button__horizontal::before {
+    top: calc(var(--vertical-offset) - var(--border-size));
+    bottom: calc(var(--vertical-offset) - var(--border-size));
+    left: calc(var(--vertical-offset) * -1);
+    right: calc(var(--vertical-offset) * -1);
+}
+.button:hover .button__horizontal {
+    transform: scaleX(0);
+}
+.button__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor;
+}
+.button__vertical::before {
+    top: calc(var(--horizontal-offset) * -1);
+    bottom: calc(var(--horizontal-offset) * -1);
+    left: calc(var(--horizontal-offset) - var(--border-size));
+    right: calc(var(--horizontal-offset) - var(--border-size));
+}
+.button:hover .button__vertical {
+    transform: scaleY(0);
+}
+
+.button_flex {
+    display: flex;
+    justify-content: center;
+}
+
+
+.container {
+    display: grid;
+    grid-template: repeat(6, 25rem) / 30% 30% 30%;
+    height: 200vh;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    gap: 2rem;
+}
+
+
+
+.margin_right {
+    margin: 1rem 2rem;
+    padding: 0.6em 2em;
+}
+
+
+@media screen and (max-width: 480px) {
+    
+    .margin_right {
+        margin: 0.8rem 0.8rem;
+    }
+    
+    .button {
+        font-size: 60%;
+    }
+
+    .margin_right {
+        width: 50%;
+    }
+
+    .button_flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        
+        grid-template: repeat(6, 15rem) / 50% 50%;
+        margin: 0.3rem;
+        gap: 0.9rem;
+    }
+
+}
